@@ -12,6 +12,8 @@ module.exports = function (app) {
     var browserPath = path.join(root, './browser');
 
     app.use(favicon(app.getValue('faviconPath')));
+
+    // app.use(express.static(uiBootstrapPath));
     app.use(express.static(npmPath));
     app.use(express.static(publicPath));
     app.use(express.static(browserPath));

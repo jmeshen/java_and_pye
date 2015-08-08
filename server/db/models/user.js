@@ -23,7 +23,36 @@ var schema = new mongoose.Schema({
     },
     google: {
         id: String
-    }
+    },
+
+    name: String,
+    gender: String,
+    lookingfor: {
+        gender: String,
+        age: {
+            min: Number,
+            max: Number
+        },
+        ethnicity: [String],
+        religion: String,
+        distance: Number
+
+    },
+    photos: [String],
+    age: Number,
+    location: Number,
+    height: {
+        feet: Number,
+        inches: Number
+    },
+    ethnicity: String,
+    religion: String,
+    occupation: String,
+    languages: [String],
+    personalwork: [String],
+    currentMatch: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    monies: Number
+
 });
 
 // generateSalt, encryptPassword and the pre 'save' and 'correctPassword' operations

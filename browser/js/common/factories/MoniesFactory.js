@@ -10,7 +10,14 @@ app.factory('MoniesFactory', function ($http) {
 			});
 	};
 
-	monies.
+	monies.checkouT = function(token) {
+		return $http.post('/checkout', {payment_method_nonce: token})
+			.then(function(res){
+				return res.data;
+			}, function(err){
+				return new Error(err.message);
+			});
+	};
 
 	return monies;
 

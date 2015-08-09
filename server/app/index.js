@@ -44,10 +44,19 @@ app.get("/client_token", function (req, res) {
   });
 });
 
-app.post("/payment-methods", function (req, res) {
+app.post("/checkout", function (req, res) {
   var nonce = req.body.payment_method_nonce;
+  console.log(req.body)
   // Use payment method nonce here
-  console.log('hey we')
+  	gateway.transaction.sale({
+  	amount: '25.00',
+  	paymentMethodNonce: nonce
+	}, function (err, result) {
+		if(err) return "Error"
+		console.log(result.transaction.amount, 'in the post');
+
+	});
+
 });
 
 

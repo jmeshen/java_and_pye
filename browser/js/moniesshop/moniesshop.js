@@ -10,15 +10,21 @@ app.controller('MoniesController', function ($scope, $state, MoniesFactory) {
 
     $scope.login = {};
     $scope.error = null;
-    var ctoken;
+    $scope.ctoken;
 
     MoniesFactory.getClientToken().then(function(token){
-        console.log('whats up', token)
-        ctoken = token;
-    })
+       
+        braintree.setup(token, "dropin", {
+            container: "payment-form"
+        });
 
-    $scope.checkout = function() {
-        console.log("good hands");
+        $scope.ctoken = token;
+    });
+
+    $scope.checkout = function(token) {
+        MoniesFactory.checkouT(token).then(function(stuff){
+            console.log('checkout', stuff)
+        })
     }
 
 });

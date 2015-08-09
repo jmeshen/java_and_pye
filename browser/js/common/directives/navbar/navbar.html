@@ -10,7 +10,8 @@
         </ul>
         <button ng-show="!user" ui-sref="login" class="btn login-button">Login</button>
         <div ng-show="user" class="welcome">
-            <span>Welcome, {{ user.email }}!</span>
+            <span id='expensive-monies'>{{ user.monies }}</span>
+            <img id='coffeebeans' src ='http://i.imgur.com/GRtUTdN.png'>
             <a ng-click="logout()">Logout</a>
         </div>
     </div>

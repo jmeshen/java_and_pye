@@ -10,7 +10,7 @@ module.exports = router;
 router.get('/:id', function(req, res, next){
 	console.log('inside the get for user', req.params.id)
 	User.findOne({_id: req.params.id})
-	.populate('currentMatch')
+	// .populate('currentMatch')
 	.exec()
 	.then(function(user){
 		console.log('got them users', user)
@@ -37,7 +37,7 @@ router.put('/filtermatches/:id', function(req, res, next){
 
 		console.log(l)
 
-		User.find({$and: [ {'gender': l.gender}, {'age': {$gte: l.min, $lte: l.max}}, 
+		User.find({$and: [ {'gender': l.gender}, {'age': {$gte: l.min, $lte: l.max}},
 			{'ethnicity': l.ethnicity}, {'religion': l.religion} ]})
 		.exec()
 		.then(function(users){
@@ -46,7 +46,7 @@ router.put('/filtermatches/:id', function(req, res, next){
 			user.arrayofPotentialMatches = users;
 			user.save(next);
 			//save users to arrayofpotentialmatches here
-			//send back the arrayofpotentialmatches to 
+			//send back the arrayofpotentialmatches to
 			//go into selecting one and displaying a random 6 of the rest
 			res.send(users)
 		})

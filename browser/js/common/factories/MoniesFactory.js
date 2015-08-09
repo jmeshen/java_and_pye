@@ -10,8 +10,6 @@ app.factory('MoniesFactory', function ($http) {
 			});
 	};
 
-	monies.
-
 	return monies;
 
 });

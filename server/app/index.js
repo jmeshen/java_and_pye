@@ -4,6 +4,15 @@ var express = require('express');
 var app = express();
 module.exports = app;
 
+var braintree = require("braintree");
+
+var gateway = braintree.connect({
+  environment: braintree.Environment.Sandbox,
+  merchantId: "278tfgpqn4wxzndf",
+  publicKey: "zpxt7djv962s9x4d",
+  privateKey: "e9f5c5577e550911d427dc9f285e42ca"
+});
+
 // Pass our express application pipeline into the configuration
 // function located at server/app/configure/index.js
 require('./configure')(app);
@@ -28,6 +37,19 @@ app.use(function (req, res, next) {
     }
 
 });
+
+app.get("/client_token", function (req, res) {
+  gateway.clientToken.generate({}, function (err, response) {
+    res.send(response.clientToken);
+  });
+});
+
+app.post("/payment-methods", function (req, res) {
+  var nonce = req.body.payment_method_nonce;
+  // Use payment method nonce here
+  console.log('hey we')
+});
+
 
 app.get('/*', function (req, res) {
     res.sendFile(app.get('indexHTMLPath'));

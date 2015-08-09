@@ -28,11 +28,90 @@ var seedUsers = function () {
     var users = [
         {
             email: 'testing@fsa.com',
-            password: 'password'
+            password: 'password',
+            name: 'Calvin Klein',
+            gender: 'Male',
+            lookingfor: {
+                gender: 'Female',
+                age: {
+                    min: 21,
+                    max: 28
+                },
+                ethnicity: ['White'],
+                religion: 'Not spiritual'
+
+            },
+            photos: ['http://sandhosting.net/my/newedge/facebook-profile-pics-for-male-i17.jpg'],
+            age: 23,
+            location: 10025,
+            height: {
+                feet: 5,
+                inches: 10
+            },
+            ethnicity: 'White',
+            religion: 'Not spiritual',
+            occupation: 'Designer',
+            languages: ['English'],
+            personalwork: ['https://github.com/'],
+            monies: 1337
         },
         {
             email: 'obama@gmail.com',
-            password: 'potus'
+            password: 'potus',
+            name: 'Victoria Secret',
+            gender: 'Female',
+            lookingfor: {
+                gender: 'Male',
+                age: {
+                    min: 21,
+                    max: 28
+                },
+                ethnicity: ['White'],
+                religion: 'Not spiritual'
+
+            },
+            photos: ['http://alisfashions.com/wp-content/uploads/2015/05/girl-picture-for-facebook-profile-wtf85cwh.jpg'],
+            age: 23,
+            location: 10018,
+            height: {
+                feet: 5,
+                inches: 2
+            },
+            ethnicity: 'White',
+            religion: 'Not spiritual',
+            occupation: 'Developer',
+            languages: ['English'],
+            personalwork: ['https://github.com/'],
+            monies: 1337
+        },
+        {
+            email: 'testing2@fsa.com',
+            password: 'password2',
+            name: 'Baby Gap',
+            gender: 'Male',
+            lookingfor: {
+                gender: 'Female',
+                age: {
+                    min: 21,
+                    max: 28
+                },
+                ethnicity: ['White'],
+                religion: 'Not spiritual'
+
+            },
+            photos: ['http://sandhosting.net/my/newedge/facebook-profile-pics-for-male-i17.jpg'],
+            age: 30,
+            location: 10025,
+            height: {
+                feet: 5,
+                inches: 10
+            },
+            ethnicity: 'Asian',
+            religion: 'Christian',
+            occupation: 'Designer',
+            languages: ['Korean'],
+            personalwork: ['https://naver.com/'],
+            monies: 1337
         }
     ];
 

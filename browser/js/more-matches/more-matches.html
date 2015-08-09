@@ -1,8 +1,11 @@
-<div ng-repeat="match in moar" class="pull-left">
+<div ng-repeat="match in moar" class="pull-left col-md-2 moar-matches">
   <div>
     <img ng-src="{{match.photos[0]}}">
     <p>{{match.age}}</p>
     <p>{{match.location}}</p>
     <p>{{match.height.feet}}'{{match.height.inches}}"</p>
+    <md-button class="md-raised md-warn" ng-click="makeTrue()">Give</md-button>
+    <md-button ng-hide="decision" class="md-raised md-primary" ng-click="makeTrue()">Take!</md-button>
+    <md-button ng-show="decision" class="md-raised md-primary" ng-click="goToMatch($index)">300 pyes</md-button>
   </div>
 </div>

@@ -1,0 +1,130 @@
+<div layout="column" layout-align="center center">
+  <md-toolbar class="md-primary">
+  <h1 class="md-toolbar-tools">
+    Account Info
+  </h1>
+</md-toolbar>
+<md-content layout-padding class="account-form">
+<form name="account">
+  <div class="gender-pref">
+    <span>I am a </span>
+    <md-select ng-model="gender">
+    <md-option ng-repeat="gender in genders" value="{{gender}}">{{gender}}</md-option>
+  </md-select><span> looking for a </span>
+  <md-select ng-model="looking">
+  <md-option ng-repeat="gender in genders" value="{{gender}}">{{gender}}</md-option>
+</md-select>
+</div>
+<md-input-container>
+<label>Name</label>
+<input required name="name" ng-model="project.name">
+<div ng-messages="account.name.$error">
+  <div ng-message="required">This is required.</div>
+</div>
+</md-input-container>
+<md-input-container>
+<label>Email</label>
+<input required name="email" ng-model="project.email">
+<div ng-messages="account.email.$error">
+  <div ng-message="required">This is required.</div>
+</div>
+</md-input-container>
+<md-input-container>
+<label>Age</label>
+<input required type="number" name="age" ng-model="project.age" min="18">
+<div ng-messages="account.age.$error">
+  <div ng-message="required">This is required.</div>
+  <div ng-message="min">You must be 18 or older to mingle.</div>
+</div>
+</md-input-container>
+<md-input-container>
+<label>Zipcode</label>
+<input required name="location" ng-model="project.location">
+<div ng-messages="account.location.$error">
+  <div ng-message="required">This is required.</div>
+</div>
+</md-input-container>
+
+<div layout layout-sm="column">
+<!-- <p>Height</p><br> -->
+  <md-input-container>
+    <label>Height</label>
+    <label>Feet</label>
+  <input required type="number" name="heightFt" ng-model="project.heightFt" flex="50">
+  <div ng-messages="account.heightFt.$error">
+    <div ng-message="required">This is required.</div>
+  </div>
+</md-input-container>
+<md-input-container>
+<label>Height</label>
+<label>Inches</label>
+<input required type="number" name="heightIn" ng-model="project.heightIn" flex="50">
+<div ng-messages="account.heightIn.$error">
+  <div ng-message="required">This is required.</div>
+</div>
+</md-input-container>
+</div>
+      <!--           <label>Feet</label>
+                <input ng-model="user.firstName">
+              <md-input-container>
+                <label>Inches</label>
+                <input ng-model="theMax">
+              </md-input-container>
+            </div> -->
+            <md-input-container>
+            <label>Ethnicity</label>
+            <input required name="ethnicity" ng-model="project.ethnicity">
+            <div ng-messages="account.ethnicity.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          <md-input-container>
+          <label>Religion</label>
+          <input name="religion" ng-model="project.religion">
+        </md-input-container>
+        <md-input-container>
+        <label>Occupation</label>
+        <input required name="occupation" ng-model="project.occupation">
+        <div ng-messages="account.occupation.$error">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+      <md-input-container>
+      <label>Languages</label>
+      <input required name="languages" ng-model="project.languages">
+      <div ng-messages="account.languages.$error">
+        <div ng-message="required">This is required.</div>
+      </div>
+    </md-input-container>
+<!--
+      <md-input-container>
+        <label>Hourly Rate (USD)</label>
+        <input required type="number" step="any" name="rate" ng-model="project.rate" min="800" max="4999">
+        <div ng-messages="account.rate.$error">
+          <div ng-message="required">You've got to charge something! You can't just <b>give away</b> a Missile Defense System.</div>
+          <div ng-message="min">You should charge at least $800 an hour. This job is a big deal... if you mess up, everyone dies!</div>
+          <div ng-message="max">$5,000 an hour? That's a little ridiculous. I doubt event Bill Clinton could afford that.</div>
+        </div>
+      </md-input-container>
+    -->
+    </form>
+  </md-content>
+  <md-content layout-padding class="account-form">
+  <h4>Summary</h4>
+      <form name="summaryForm">
+        <md-input-container flex>
+          <label>I am..</label>
+          <textarea ng-model="summary.bio" columns="1"></textarea>
+        </md-input-container>
+        <md-input-container flex>
+          <label>I like..</label>
+          <textarea ng-model="summary.like" columns="1"></textarea>
+        </md-input-container>
+        <md-input-container flex>
+          <label>I appreciate when my date..</label>
+          <textarea ng-model="summary.appreciate" columns="1"></textarea>
+        </md-input-container>
+
+      </form>
+    </md-content>
+</div>

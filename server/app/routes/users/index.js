@@ -64,6 +64,8 @@ router.put('/update', function(req, res, next){
 		amount = 3000;
 	} else if (req.body.amount === 24){
 		amount = 2500;
+	} else if (req.body.amount < 0) {
+		amount = req.body.amount;
 	} else {
 		amount = 300;
 	};

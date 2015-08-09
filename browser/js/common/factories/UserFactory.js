@@ -21,6 +21,9 @@ app.factory('UserFactory', function ($http) {
         return new Error(err.message);
       })
     },
+    updateMatch: function(newMatch) {
+      match = newMatch;
+    },
     getMatch: function() {
       return match;
     },

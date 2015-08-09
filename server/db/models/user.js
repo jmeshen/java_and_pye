@@ -1,6 +1,8 @@
 'use strict';
 var crypto = require('crypto');
 var mongoose = require('mongoose');
+var _ = require('lodash');
+var Q = require('q');
 
 var schema = new mongoose.Schema({
     email: {
@@ -51,6 +53,11 @@ var schema = new mongoose.Schema({
     languages: [String],
     personalwork: [String],
     currentMatch: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    arrayOfPotentialMatches: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    history: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    likes: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    connections: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    passes: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
     monies: Number
 
 });
@@ -85,5 +92,15 @@ schema.statics.encryptPassword = encryptPassword;
 schema.method('correctPassword', function (candidatePassword) {
     return encryptPassword(candidatePassword, this.salt) === this.password;
 });
+
+
+
+schema.method('matchOfTheDay', function(arrayOfPotentialMatches) {
+    var randomPerson = Math.floor(Math.random * arrayOfPotentialMatches.length);
+    return arrayOfPotentialMatches[randomPerson];
+})
+
+
+
 
 mongoose.model('User', schema);

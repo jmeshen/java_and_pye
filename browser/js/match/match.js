@@ -8,5 +8,8 @@ app.config(function ($stateProvider) {
 
 app.controller('MatchCtrl', function($scope, UserFactory) {
   $scope.match = UserFactory.getMatch();
-  console.log($scope.match)
-})
+  console.log('whats up', $scope.match)
+  var x = $scope.match;
+  $scope.languages = x.languages.join(',');
+
+});

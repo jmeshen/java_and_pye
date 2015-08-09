@@ -42,7 +42,7 @@ var schema = new mongoose.Schema({
     },
     photos: [String],
     age: Number,
-    location: Number,
+    location: String,
     height: {
         feet: Number,
         inches: Number
@@ -58,7 +58,11 @@ var schema = new mongoose.Schema({
     likes: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
     connections: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
     passes: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
-    monies: Number
+    monies: Number,
+    iam: [String],
+    ilike: [String],
+    iappreciate: [String]
+
 
 });
 

@@ -10,6 +10,26 @@ app.factory('MoniesFactory', function ($http) {
 			});
 	};
 
+
+	monies.checkouT = function(token) {
+		return $http.post('/checkout', {payment_method_nonce: token})
+			.then(function(res){
+				return res.data;
+			}, function(err){
+				return new Error(err.message);
+			});
+	};
+
+	monies.updateCoffeeBeans = function(amount){
+		console.log(amount,'in the factory')
+		return $http.put('/api/users/update', {amount: amount})
+			.then(function(res){
+				return res.data;
+			}, function(err){
+				return new Error(err.message);
+			});
+	};
+
 	return monies;
 
 });

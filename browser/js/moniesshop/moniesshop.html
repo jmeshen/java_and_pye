@@ -1,6 +1,16 @@
 
-<form id="checkout" method="post" action="checkout()">
+<form id="checkout" method="post" action="/checkout">
   <div id="payment-form"></div>
-  <input type="submit" value="Pay $10">
+  <alert type="danger" ng-show="error">
+        {{ error }}
+    </alert>
+
+    <alert type="success" ng-show="success">
+        {{ success }}
+    </alert>
+  
+  <input type="submit" value="Pay $24.99" ng-click='monies(25)'>
+  <input type="submit" value="Pay $23.99" ng-click='monies(24)'>
+  <input type="submit" value="Pay $1.99" ng-click='monies(2)'>
 </form>
 

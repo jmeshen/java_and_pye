@@ -56,6 +56,30 @@ router.put('/filtermatches/:id', function(req, res, next){
 	.then(null, next)
 });
 
+
+router.put('/update', function(req, res, next){
+	console.log(req.user, 'in the router')
+	var id = req.user._id, amount = 0;
+	if(req.body.amount === 25){
+		amount = 3000;
+	} else if (req.body.amount === 24){
+		amount = 2500;
+	} else {
+		amount = 300;
+	};
+
+	User.findOne({_id: id})
+	.exec()
+	.then(function(user){
+		user.monies += amount;
+		user.save(next);
+		res.send({message: "We got your payment! Keep striving for the partner of your dreams! We're here with you!"});
+	})
+})
+
+
+
+
 //update when a person pushes like or pass
 router.put('/:likeorpass/status/:id', function(req,res,next){
 	var likeorpass = req.params.likeorpass;
@@ -74,7 +98,9 @@ router.put('/:likeorpass/status/:id', function(req,res,next){
 
 	})
 	.then(next, null);
-})
+});
+
+
 
 
 

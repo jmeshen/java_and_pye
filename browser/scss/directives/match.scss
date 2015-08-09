@@ -9,11 +9,12 @@
     width: 100%;
   }
 }
-.match-info {
-
-}
-.match-summary {
-
+.match-buttons {
+  margin-top: 1%;
+  button {
+    width: 30%;
+    padding: 1%;
+  }
 }
 .thumbnails {
   img {

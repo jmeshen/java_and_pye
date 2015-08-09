@@ -6,10 +6,16 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('MatchCtrl', function($scope, UserFactory) {
+app.controller('MatchCtrl', function($scope, UserFactory, $state) {
   $scope.match = UserFactory.getMatch();
   console.log('whats up', $scope.match)
   var x = $scope.match;
   $scope.languages = x.languages.join(',');
-
+  $scope.decision = false;
+  $scope.makeTrue = function() {
+    $scope.decision = true;
+  }
+  $scope.goToMoar = function() {
+    $state.go('moar');
+  }
 });

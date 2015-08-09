@@ -10,6 +10,7 @@ app.factory('MoniesFactory', function ($http) {
 			});
 	};
 
+
 	monies.checkouT = function(token) {
 		return $http.post('/checkout', {payment_method_nonce: token})
 			.then(function(res){
@@ -18,7 +19,6 @@ app.factory('MoniesFactory', function ($http) {
 				return new Error(err.message);
 			});
 	};
-
 	return monies;
 
 });
